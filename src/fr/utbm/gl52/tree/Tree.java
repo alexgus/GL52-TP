@@ -1,4 +1,4 @@
-package fr.utbm.gl51.tree;
+package fr.utbm.gl52.tree;
 
 import java.io.Serializable;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package fr.utbm.gl51.tree;
+package fr.utbm.gl52.tree;
 
 /**
  * BinaryTreeNode is one of the implementation of TreeNode.

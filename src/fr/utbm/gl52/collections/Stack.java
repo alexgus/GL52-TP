@@ -1,4 +1,4 @@
-package fr.utbm.gl51.collections;
+package fr.utbm.gl52.collections;
 
 /**
  * Generic method for accessing stack

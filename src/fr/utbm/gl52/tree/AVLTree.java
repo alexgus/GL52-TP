@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.utbm.gl51.tree;
+package fr.utbm.gl52.tree;
 
 /**
  * Implementation of AVL tree.

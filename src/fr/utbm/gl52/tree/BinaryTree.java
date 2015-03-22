@@ -1,11 +1,11 @@
 /**
  * 
  */
-package fr.utbm.gl51.tree;
+package fr.utbm.gl52.tree;
 
 import java.util.Iterator;
 
-import fr.utbm.gl51.collections.ArrayStack;
+import fr.utbm.gl52.collections.ArrayStack;
 
 
 /**

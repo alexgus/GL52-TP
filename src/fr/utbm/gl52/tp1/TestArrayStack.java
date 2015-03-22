@@ -1,9 +1,9 @@
 /**
  * 
  */
-package fr.utbm.gl51.tp1;
+package fr.utbm.gl52.tp1;
 
-import fr.utbm.gl51.collections.ArrayStack;
+import fr.utbm.gl52.collections.ArrayStack;
 
 /**
  * @author aguyon
