@@ -5,6 +5,8 @@ package fr.utbm.gl51.tree;
 
 import java.util.Iterator;
 
+import fr.utbm.gl51.collections.ArrayStack;
+
 
 /**
  * This class implements a binary tree. It have BinaryTreeNode(s)
@@ -12,40 +14,34 @@ import java.util.Iterator;
  * @author aguyon
  *
  */
-public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
+public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> implements Iterable<BinaryTreeNode<D>> {
 
 	private static final long serialVersionUID = -4003269397755168711L;
 	
 	class leftFirstPreorderIterationIterator implements Iterator<BinaryTreeNode<D>>{
 
-		private BinaryTreeNode<D> curIndex;
+		private final ArrayStack<BinaryTreeNode<D>> stack;
 		
 		public leftFirstPreorderIterationIterator(){
-			this.curIndex = getRoot();
-			this.setToLeft();
-		}
-		
-		/**
-		 * Set the current to deep left
-		 */
-		private void setToLeft(){
-			while(this.curIndex.hasLeftChild())
-				this.curIndex = this.curIndex.getLeft();
+			this.stack = new ArrayStack<BinaryTreeNode<D>>();
+            this.stack.push(getRoot());
 		}
 		
 		@Override
 		public boolean hasNext() {
-			if(this.curIndex.hasLeftChild() 
-					|| this.curIndex.hasParentNode() 
-					|| this.curIndex.hasRightChild())
-				return true;
-			return false;
+			return !stack.isEmpty();
 		}
 
 		@Override
 		public BinaryTreeNode<D> next() {
-			// TODO Auto-generated method stub
-			return null;
+            BinaryTreeNode<D> node = stack.pop();           
+
+            if (node.hasRightChild()) 
+            	stack.push(node.getRight());
+            if (node.hasLeftChild()) 
+            	stack.push(node.getLeft());
+
+            return node;
 		}
 
 		@Override
@@ -55,7 +51,7 @@ public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
 		}
 	}
 	
-	public leftFirstPreorderIterationIterator getIterator(){
+	public Iterator<BinaryTreeNode<D>> iterator(){
 		return new leftFirstPreorderIterationIterator();
 	}
 }

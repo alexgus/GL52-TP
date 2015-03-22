@@ -5,6 +5,7 @@ package fr.utbm.gl51.tp1;
 
 import fr.utbm.gl51.collections.ArrayStack;
 import fr.utbm.gl51.tree.BinarySearchTree;
+import fr.utbm.gl51.tree.BinaryTreeNode;
 
 /**
  * @author Alexandre
@@ -38,8 +39,9 @@ public class TestBinarySearchTree {
 		while(!array.isEmpty())
 			bst.insert(array.pop());
 		
-		bst.rotateRight(bst.getRoot().getRight());
-	
+		for (BinaryTreeNode<Integer> binaryTreeNode : bst)
+			System.out.println(binaryTreeNode.getUserData());
+		
 		System.out.println("Tree nb node : " + bst.getRoot().getChildCount());
 		System.out.println("Stack size : " + array.getSize());
 
