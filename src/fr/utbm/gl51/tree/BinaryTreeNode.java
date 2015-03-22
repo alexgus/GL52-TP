@@ -35,6 +35,25 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 			i += this.right.getChildCount() + 1;
 		return i;
 	}
+	
+	public int getMaxDepth(){
+		if(this.getLeftDepth() > this.getRightDepth())
+			return this.getLeftDepth();
+		return this.getRightDepth();
+	}
+	
+	public int getLeftDepth(){
+		if(this.hasLeftChild())
+			return this.getLeft().getMaxDepth();
+		return this.getDepth();
+	}
+	
+	public int getRightDepth(){
+		if(this.hasRightChild())
+			return this.getRight().getMaxDepth();
+		return this.getDepth();
+	}
+
 
 	/**
 	 * Set the left child of the current binary tree node
@@ -51,10 +70,11 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	 * Set the right child of the current binary tree node
 	 */
 	public void setLeft(BinaryTreeNode<D> left) {
-		if(left != null)
+		if(left != null){
 			this.increaseDeep(left);
+			left.setParentNode(this);
+		}
 		this.left = left;
-		left.setParentNode(this);
 	}
 
 	/**
@@ -68,10 +88,11 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	 * Get the right child of the current binary tree node
 	 */
 	public void setRight(BinaryTreeNode<D> right) {
-		if(right != null)
+		if(right != null){
 			this.increaseDeep(right);
+			right.setParentNode(this);
+		}
 		this.right = right;
-		right.setParentNode(this);
 	}
 	
 	public int getDepth() {

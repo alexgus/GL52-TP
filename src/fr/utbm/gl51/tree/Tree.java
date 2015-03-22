@@ -1,6 +1,7 @@
 package fr.utbm.gl51.tree;
 
 import java.io.Serializable;
+import java.util.Iterator;
 
 
 /**
@@ -26,5 +27,5 @@ public interface Tree<D,N extends TreeNode<D,N>> extends Iterable<N>, Serializab
 	 */
 	public boolean isEmpty(); 
 
-	// TODO iterator
+	public Iterator<N> iterator();
 }

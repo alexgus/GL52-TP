@@ -4,7 +4,7 @@
 package fr.utbm.gl51.tree;
 
 /**
- * @author Alexandre
+ * @author aguyon
  *
  */
 public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
@@ -61,27 +61,36 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 	 * @param node The node and its sons to rotate
 	 */
 	public void rotateRight(BinaryTreeNode<D> node){
-		if(node.getLeft() != null){ // if no left, can not rotate
+		if(node.hasLeftChild()){ // if no left, can not rotate
 			
 			BinaryTreeNode<D> tmp = null;
 			if(node.getLeft().getRight() != null){
 				tmp = node.getLeft().getRight();
 			}
 			
-			if(node.getParentNode().getLeft() == node)
-				node.getParentNode().setLeft(node.getLeft());
-			else
-				node.getParentNode().setRight(node.getLeft());
+			if(node != this.getRoot()){
+				if(node.getParentNode().getLeft() == node)
+					node.getParentNode().setLeft(node.getLeft());
+				else
+					node.getParentNode().setRight(node.getLeft());
+			}else{
+				this.setRoot(node.getLeft());
+				node.getLeft().setParentNode(null);
+			}
 			
-			node.getLeft().setParentNode(node.getParentNode());
 			node.getLeft().setRight(node);
 			
 			node.setLeft(tmp);
+			
+			node.setDepth(node.getDepth()-1);
+			node.getParentNode().setDepth(node.getParentNode().getDepth()+1);
+			if(node.getParentNode().hasLeftChild())
+				node.getParentNode().getLeft().setDepth(node.getParentNode().getLeft().getDepth()+1);
 		}
 	}
 	
 	public void rotateLeft(BinaryTreeNode<D> node){
-		if(node.getRight() != null){ // if no left, can not rotate
+		if(node.hasRightChild()){ // if no left, can not rotate
 			
 			BinaryTreeNode<D> tmp = null;
 			if(node.getRight().getLeft() != null){

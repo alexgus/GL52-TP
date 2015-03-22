@@ -3,8 +3,6 @@
  */
 package fr.utbm.gl51.tp1;
 
-import java.util.Iterator;
-
 import fr.utbm.gl51.collections.ArrayStack;
 import fr.utbm.gl51.tree.BinaryTree;
 import fr.utbm.gl51.tree.BinaryTreeNode;
@@ -41,8 +39,6 @@ public class TestBinaryTree {
 			root.setLeft(g);
 			root = g;
 		}
-		
-		Iterator<BinaryTreeNode<Integer>> it = btree.iterator();
 		
 		for (BinaryTreeNode<Integer> binaryTreeNode : btree)
 			System.out.println(binaryTreeNode.getUserData());

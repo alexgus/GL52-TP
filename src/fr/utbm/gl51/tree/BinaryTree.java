@@ -14,7 +14,7 @@ import fr.utbm.gl51.collections.ArrayStack;
  * @author aguyon
  *
  */
-public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> implements Iterable<BinaryTreeNode<D>> {
+public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
 
 	private static final long serialVersionUID = -4003269397755168711L;
 	
