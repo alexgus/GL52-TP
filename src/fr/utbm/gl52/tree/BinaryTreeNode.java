@@ -110,4 +110,8 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	public boolean hasRightChild(){
 		return (this.right != null);
 	}
+	
+	public String toString(){
+		return "Depth : " + this.getDepth() + " Data : " + this.getUserData();
+	}
 }

@@ -3,6 +3,7 @@
  */
 package fr.utbm.gl52.tree;
 
+
 /**
  * @author aguyon
  *
@@ -58,55 +59,141 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 	
 	/**
 	 * Allow to rotate 3 contiguous values of binary node
-	 * @param node The node and its sons to rotate
+	 * @param a The node and its sons to rotate
 	 */
-	public void rotateRight(BinaryTreeNode<D> node){
-		if(node.hasLeftChild()){ // if no left, can not rotate
+	public void rotateRight(BinaryTreeNode<D> a){
+		if(a.hasLeftChild()){ // if no left, can not rotate
 			
-			BinaryTreeNode<D> tmp = null;
-			if(node.getLeft().getRight() != null){
-				tmp = node.getLeft().getRight();
-			}
+			/* Rotate right around a
+			 *               x (parent)
+			 *              / 
+			 *             a
+			 *            / \
+			 *           b   ...
+			 *          / \
+			 *       ...   e
+			 *         
+			 * give :
+			 * 
+			 *               x (parent)
+			 *              / 
+			 *             b
+			 *            / \
+			 *         ...   a
+			 *              / \
+			 *             e   ...
+			 * 
+			 */
 			
-			if(node != this.getRoot()){
-				if(node.getParentNode().getLeft() == node)
-					node.getParentNode().setLeft(node.getLeft());
+			
+			BinaryTreeNode<D> b,e,parent;
+			
+			// Set all variables
+			b = a.getLeft();
+			if(a != this.getRoot())
+				parent = a.getParentNode();
+			else
+				parent = null;
+			if(a.getLeft().getRight() != null)
+				e = a.getLeft().getRight();
+			else
+				e = null;
+			
+			if(parent != null){
+				if(parent.getLeft() == a)
+					parent.setLeft(b);
 				else
-					node.getParentNode().setRight(node.getLeft());
-			}else{
-				this.setRoot(node.getLeft());
-				node.getLeft().setParentNode(null);
+					parent.setRight(b);
+			}else{ // handle root
+				this.setRoot(b);
+				b.setParentNode(null);
 			}
 			
-			node.getLeft().setRight(node);
+			b.setRight(a);
+			a.setLeft(e);
 			
-			node.setLeft(tmp);
+			// Set depth
+			a.setDepth(a.getDepth()-1);
+			b.setDepth(b.getDepth()+1);
 			
-			node.setDepth(node.getDepth()-1);
-			node.getParentNode().setDepth(node.getParentNode().getDepth()+1);
-			if(node.getParentNode().hasLeftChild())
-				node.getParentNode().getLeft().setDepth(node.getParentNode().getLeft().getDepth()+1);
+			// decrease the depth of left children of b
+			BinaryTree<D> btree = new BinaryTree<D>();
+			btree.setRoot(b.getLeft());
+			for (BinaryTreeNode<D> binaryTreeNode : btree)
+				binaryTreeNode.setDepth(binaryTreeNode.getDepth() - 1);
+			
+			// increase the depht of right chlidren of a
+			btree.setRoot(a.getRight());
+			for (BinaryTreeNode<D> binaryTreeNode : btree)
+				binaryTreeNode.setDepth(binaryTreeNode.getDepth() - 1);
 		}
 	}
 	
-	public void rotateLeft(BinaryTreeNode<D> node){
-		if(node.hasRightChild()){ // if no left, can not rotate
+	public void rotateLeft(BinaryTreeNode<D> a){
+		if(a.hasLeftChild()){ // if no left, can not rotate
 			
-			BinaryTreeNode<D> tmp = null;
-			if(node.getRight().getLeft() != null){
-				tmp = node.getRight().getLeft();
+			/* Rotate left around a
+			 *               x (parent)
+			 *              / 
+			 *             a
+			 *            / \
+			 *         ...   b
+			 *              / \
+			 *             e   ...
+			 *         
+			 * give :
+			 * 
+			 *               x (parent)
+			 *              / 
+			 *             b
+			 *            / \
+			 *           a   ...
+			 *          / \
+			 *       ...   e
+			 * 
+			 */
+			
+			
+			BinaryTreeNode<D> b,e,parent;
+			
+			// Set all variables
+			b = a.getRight();
+			if(a != this.getRoot())
+				parent = a.getParentNode();
+			else
+				parent = null;
+			if(a.getRight().getLeft() != null)
+				e = a.getRight().getLeft();
+			else
+				e = null;
+			
+			if(parent != null){
+				if(parent.getRight() == a)
+					parent.setRight(b);
+				else
+					parent.setLeft(b);
+			}else{ // handle root
+				this.setRoot(b);
+				b.setParentNode(null);
 			}
 			
-			if(node.getParentNode().getRight() == node)
-				node.getParentNode().setRight(node.getRight());
-			else
-				node.getParentNode().setLeft(node.getRight());
+			b.setLeft(a);
+			a.setRight(e);
 			
-			node.getRight().setParentNode(node.getParentNode());
-			node.getRight().setLeft(node);
+			// Set depth
+			a.setDepth(a.getDepth()-1);
+			b.setDepth(b.getDepth()+1);
 			
-			node.setRight(tmp);
+			// decrease the depth of left children of b
+			BinaryTree<D> btree = new BinaryTree<D>();
+			btree.setRoot(b.getRight());
+			for (BinaryTreeNode<D> binaryTreeNode : btree)
+				binaryTreeNode.setDepth(binaryTreeNode.getDepth() - 1);
+			
+			// increase the depht of right chlidren of a
+			btree.setRoot(a.getLeft());
+			for (BinaryTreeNode<D> binaryTreeNode : btree)
+				binaryTreeNode.setDepth(binaryTreeNode.getDepth() - 1);
 		}
 	}
-
 }

@@ -16,8 +16,8 @@ public class AVLTree<D extends Comparable<D>> extends BinarySearchTree<D> {
 	
 	public void insert(BinaryTreeNode<D> d){
 		super.insert(d);
-		if(d.hasParentNode() && d.getParentNode().hasParentNode())
-			this.rebalance(d.getParentNode().getParentNode());
+		/*if(d.hasParentNode() && d.getParentNode().hasParentNode())
+			this.rebalance(d.getParentNode().getParentNode());*/
 	}
 	
 	/**
@@ -38,12 +38,16 @@ public class AVLTree<D extends Comparable<D>> extends BinarySearchTree<D> {
 	
 	public void rebalance(BinaryTreeNode<D> node){
 		if(!this.checkValid(node)){
-			this.rotateRight(node);
-			if(node.hasLeftChild())
-				this.rebalance(node.getLeft());
-			this.rotateLeft(node);
-			if(node.hasRightChild())
-				this.rebalance(node.getRight());
+			
+			if(node.getLeftDepth() < node.getRightDepth()){
+				if(node.hasLeftChild())
+					this.rebalance(node.getLeft());
+				this.rotateLeft(node);
+			}else{
+				if(node.hasRightChild())
+					this.rebalance(node.getRight());
+				this.rotateRight(node);
+			}
 		}
 	}
 }

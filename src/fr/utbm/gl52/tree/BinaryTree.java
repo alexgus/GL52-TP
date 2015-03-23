@@ -27,6 +27,11 @@ public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
             this.stack.push(getRoot());
 		}
 		
+		public leftFirstPreorderIterationIterator(BinaryTreeNode<D> node){
+			this.stack = new ArrayStack<BinaryTreeNode<D>>();
+            this.stack.push(node);
+		}
+		
 		@Override
 		public boolean hasNext() {
 			return !stack.isEmpty();

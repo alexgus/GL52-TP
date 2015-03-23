@@ -9,7 +9,7 @@ import fr.utbm.gl52.tree.BinarySearchTree;
 import fr.utbm.gl52.tree.BinaryTreeNode;
 
 /**
- * @author Alexandre
+ * @author aguyon
  *
  */
 public class TestAVLTree {
@@ -41,7 +41,7 @@ public class TestAVLTree {
 			avl.insert(array.pop());
 		
 		for (BinaryTreeNode<Integer> binaryTreeNode : avl)
-			System.out.println(binaryTreeNode.getUserData());
+			System.out.println(binaryTreeNode);
 		
 		System.out.println("Tree nb node : " + avl.getRoot().getChildCount());
 		System.out.println("Stack size : " + array.getSize());
