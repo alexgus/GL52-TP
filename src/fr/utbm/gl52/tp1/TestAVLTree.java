@@ -40,6 +40,13 @@ public class TestAVLTree {
 		while(!array.isEmpty())
 			avl.insert(array.pop());
 		
+		avl.rotateRight(avl.getRoot().getLeft().getLeft().getRight());
+		avl.rotateLeft(avl.getRoot().getLeft().getLeft());
+		
+		avl.rotateRight(avl.getRoot().getRight());
+		avl.rotateRight(avl.getRoot().getRight().getRight());
+		avl.rotateLeft(avl.getRoot().getRight());
+		
 		for (BinaryTreeNode<Integer> binaryTreeNode : avl)
 			System.out.println(binaryTreeNode);
 		

@@ -24,12 +24,8 @@ public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
 		
 		public leftFirstPreorderIterationIterator(){
 			this.stack = new ArrayStack<BinaryTreeNode<D>>();
-            this.stack.push(getRoot());
-		}
-		
-		public leftFirstPreorderIterationIterator(BinaryTreeNode<D> node){
-			this.stack = new ArrayStack<BinaryTreeNode<D>>();
-            this.stack.push(node);
+			if(getRoot() != null)
+				this.stack.push(getRoot());
 		}
 		
 		@Override
@@ -39,12 +35,12 @@ public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
 
 		@Override
 		public BinaryTreeNode<D> next() {
-            BinaryTreeNode<D> node = stack.pop();           
-
-            if (node.hasRightChild()) 
-            	stack.push(node.getRight());
-            if (node.hasLeftChild()) 
-            	stack.push(node.getLeft());
+            BinaryTreeNode<D> node = stack.pop();         
+            BinaryTreeNode<D> test;
+            if (node.hasRightChild() && (test = node.getRight()) != null ) 
+            	stack.push(test);
+            if (node.hasLeftChild() && (test = node.getLeft()) != null) 
+            	stack.push(test);
 
             return node;
 		}

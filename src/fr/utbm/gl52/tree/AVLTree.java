@@ -38,15 +38,12 @@ public class AVLTree<D extends Comparable<D>> extends BinarySearchTree<D> {
 	
 	public void rebalance(BinaryTreeNode<D> node){
 		if(!this.checkValid(node)){
-			
 			if(node.getLeftDepth() < node.getRightDepth()){
-				if(node.hasLeftChild())
-					this.rebalance(node.getLeft());
 				this.rotateLeft(node);
+				this.rebalance(node.getLeft());
 			}else{
-				if(node.hasRightChild())
-					this.rebalance(node.getRight());
 				this.rotateRight(node);
+				this.rebalance(node.getRight());
 			}
 		}
 	}
