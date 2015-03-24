@@ -24,9 +24,15 @@ public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
 		
 		public leftFirstPreorderIterationIterator(){
 			this.stack = new ArrayStack<BinaryTreeNode<D>>();
-			if(getRoot() != null)
-				this.stack.push(getRoot());
+			pushLeftChildren(getRoot());
 		}
+		
+		private void pushLeftChildren(BinaryTreeNode<D> cur) {  
+	     while (cur != null) {  
+	       stack.push(cur);
+	       cur = cur.getLeft();  
+	     }  
+	   }
 		
 		@Override
 		public boolean hasNext() {
@@ -35,14 +41,10 @@ public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
 
 		@Override
 		public BinaryTreeNode<D> next() {
-            BinaryTreeNode<D> node = stack.pop();         
-            BinaryTreeNode<D> test;
-            if (node.hasRightChild() && (test = node.getRight()) != null ) 
-            	stack.push(test);
-            if (node.hasLeftChild() && (test = node.getLeft()) != null) 
-            	stack.push(test);
-
-            return node;
+			BinaryTreeNode<D> res = stack.pop();  
+		    pushLeftChildren(res.getRight());  
+		   
+		     return res;
 		}
 
 		@Override
