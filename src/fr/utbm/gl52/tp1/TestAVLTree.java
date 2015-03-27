@@ -21,17 +21,24 @@ public class TestAVLTree {
 		
 		System.out.println("Stack size : " + array.getSize());
 		
+		array.push(50);
 		array.push(67);
+		array.push(4);
+		array.push(3);
 		array.push(72);
+		array.push(9);
 		array.push(54);
+		array.push(12);
+		array.push(8);
+		array.push(14);
+		array.push(7);
+		array.push(1);
 		array.push(76);
+		array.push(2);
 		array.push(19);
 		array.push(23);
-		array.push(12);
-		array.push(14);
-		array.push(9);
-		array.push(17);
-		array.push(50);
+		array.push(6);
+		array.push(5);
 		
 		System.out.println("Stack size : " + array.getSize());
 		
@@ -40,17 +47,10 @@ public class TestAVLTree {
 		while(!array.isEmpty())
 			avl.insert(array.pop());
 		
-		avl.rotateRight(avl.getRoot().getLeft().getLeft().getRight());
-		avl.rotateLeft(avl.getRoot().getLeft().getLeft());
-		
-		avl.rotateRight(avl.getRoot().getRight());
-		avl.rotateRight(avl.getRoot().getRight().getRight());
-		avl.rotateLeft(avl.getRoot().getRight());
-		
 		for (BinaryTreeNode<Integer> binaryTreeNode : avl)
 			System.out.println(binaryTreeNode);
 		
-		System.out.println("Tree nb node : " + avl.getRoot().getChildCount());
+		System.out.println("Tree nb node : " + (avl.getRoot().getChildCount() + 1));
 		System.out.println("Stack size : " + array.getSize());
 	}
 }

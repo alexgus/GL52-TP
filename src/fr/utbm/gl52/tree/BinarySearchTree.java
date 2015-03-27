@@ -17,13 +17,10 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 	 * @param d The node to insert
 	 */
 	public void insert(BinaryTreeNode<D> d){
-		if(this.isEmpty()){
-			d.setDepth(1);
+		if(this.isEmpty())
 			this.setRoot(d);
-		}
-		else{
+		else
 			this.insert(this.getRoot(), d);
-		}
 	}
 	
 	/**
@@ -111,21 +108,6 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 			
 			b.setRight(a);
 			a.setLeft(e);
-			
-			// Set depth
-			/*a.setDepth(a.getDepth()-1);
-			b.setDepth(b.getDepth()+1);*/
-			
-			// decrease the depth of left children of b
-			BinaryTree<D> btree = new BinaryTree<D>();
-			btree.setRoot(b.getLeft());
-			for (BinaryTreeNode<D> binaryTreeNode : btree)
-				binaryTreeNode.setDepth(binaryTreeNode.getDepth() - 1);
-			
-			// increase the depht of right chlidren of a
-			btree.setRoot(a.getRight());
-			for (BinaryTreeNode<D> binaryTreeNode : btree)
-				binaryTreeNode.setDepth(binaryTreeNode.getDepth() + 1);
 		}
 	}
 	
@@ -180,23 +162,6 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 			if(b != null)
 				b.setLeft(a);
 			a.setRight(e);
-			
-			// Set depth
-			/*a.setDepth(a.getDepth()-1);
-			b.setDepth(b.getDepth()+1);*/
-			
-			// decrease the depth of left children of b
-			BinaryTree<D> btree = new BinaryTree<D>();
-			if(b != null){
-				btree.setRoot(b.getRight());
-				for (BinaryTreeNode<D> binaryTreeNode : btree)
-					binaryTreeNode.setDepth(binaryTreeNode.getDepth() + 1);
-			}
-			
-			// increase the depht of right chlidren of a
-			btree.setRoot(a.getLeft());
-			for (BinaryTreeNode<D> binaryTreeNode : btree)
-				binaryTreeNode.setDepth(binaryTreeNode.getDepth() - 1);
 		}
 	}
 }

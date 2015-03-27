@@ -20,11 +20,6 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	 * The right child of this current node
 	 */
 	private BinaryTreeNode<D> right;
-	
-	/**
-	 * This attribute defines the deep value of this node
-	 */
-	private int depth;
 
 	@Override
 	public Integer getChildCount() {
@@ -53,6 +48,18 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 			return this.getRight().getMaxDepth();
 		return this.getDepth();
 	}
+	
+	public int getDepth(){
+		int depth = 1;
+		
+		BinaryTreeNode<D> node = this;
+		while(node!= null && node.hasParentNode()){
+			++depth;
+			node = node.getParentNode();
+		}
+		
+		return depth;
+	}
 
 
 	/**
@@ -62,18 +69,12 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 		return left;
 	}
 	
-	private void increaseDeep(BinaryTreeNode<D> node){
-		node.setDepth(this.getDepth()+1);
-	}
-	
 	/**
 	 * Set the right child of the current binary tree node
 	 */
 	public void setLeft(BinaryTreeNode<D> left) {
-		if(left != null){
-			this.increaseDeep(left);
+		if(left != null)
 			left.setParentNode(this);
-		}
 		this.left = left;
 	}
 
@@ -88,19 +89,9 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	 * Get the right child of the current binary tree node
 	 */
 	public void setRight(BinaryTreeNode<D> right) {
-		if(right != null){
-			this.increaseDeep(right);
+		if(right != null)
 			right.setParentNode(this);
-		}
 		this.right = right;
-	}
-	
-	public int getDepth() {
-		return depth;
-	}
-
-	public void setDepth(int deep) {
-		this.depth = deep;
 	}
 	
 	public boolean hasLeftChild(){
@@ -112,6 +103,6 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 	
 	public String toString(){
-		return "Depth : " + this.getDepth() + " Data : " + this.getUserData();
+		return "Data : " + this.getUserData() + " Depth : " + this.getDepth();
 	}
 }
