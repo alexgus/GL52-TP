@@ -7,23 +7,24 @@ package fr.utbm.gl52.tree;
  * Implementation of AVL tree.
  * It is search binary tree which automatically equilibrate itself
  * 
- * @author aguyon
+ * @author Alexandre Guyon
  *
  */
 public class AVLTree<D extends Comparable<D>> extends BinarySearchTree<D> {
 
 	private static final long serialVersionUID = 5485618973922447250L;
 	
+	@Override
 	public void insert(BinaryTreeNode<D> d){
 		super.insert(d);
 		if(d.hasParentNode())
 			this.rebalance(d.getParentNode());
 	}
 	
-	public void rebalance(){
-		this.rebalance(this.getRoot());
-	}
-	
+	/**
+	 * Check if the specified node is right balanced or not and correct it.
+	 * @param node The node to check right and left's high
+	 */
 	public void rebalance(BinaryTreeNode<D> node){
 		if(node != null){
 			if(node.getLeftDepth() < node.getRightDepth()){

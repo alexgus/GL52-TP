@@ -6,11 +6,17 @@ package fr.utbm.gl52.tree;
 import java.util.Iterator;
 
 /**
- * @author aguyon
+ * Defines tree which can not be instantiated.
+ * This one can have root node and defines some methods for manipulating the tree. 
+ * 
+ * @author Alexandre Guyon
  *
  */
 public abstract class AbstractTree<D,N extends AbstractTreeNode<D,N>> implements Tree<D,N> {
-
+    	
+    	/**
+    	 * Root N (AbstractTreeNode) 
+    	 */
 	private N root;
 	
 	private static final long serialVersionUID = -7402586842503600587L;

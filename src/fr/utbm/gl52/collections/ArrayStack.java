@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 /**
  * Implement array version of stack
- * 
- * @author aguyon
+ * @param <E> E is the type of data you want to put in the stack
+ * @author Alexandre Guyon
  *
  */
 public class ArrayStack<E> implements Stack<E>{

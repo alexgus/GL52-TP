@@ -1,12 +1,14 @@
 /**
  * 
  */
-package fr.utbm.gl52.tp1;
+package fr.utbm.gl52.launcher;
 
 import fr.utbm.gl52.collections.ArrayStack;
 
 /**
- * @author aguyon
+ * This class allow to test the implementation of Array Stack
+ * 
+ * @author Alexandre Guyon
  *
  */
 public class TestArrayStack {
@@ -15,7 +17,7 @@ public class TestArrayStack {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ArrayStack<Integer> array = new ArrayStack<Integer>();
+		ArrayStack<Integer> array = new ArrayStack<>();
 		
 		System.out.println("Size : " + array.getSize());
 		

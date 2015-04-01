@@ -4,7 +4,7 @@ package fr.utbm.gl52.tree;
  * BinaryTreeNode is one of the implementation of TreeNode.
  * This one has two children (left, right) which are BinaryTreeNode too.
  *
- * @author aguyon
+ * @author Alexandre Guyon
  *
  */
 public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
@@ -23,7 +23,7 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 
 	@Override
 	public Integer getChildCount() {
-		Integer i = 0;
+		int i = 0;
 		if(this.hasLeftChild())
 			i = this.left.getChildCount() + 1;
 		if(this.hasRightChild())
@@ -31,6 +31,10 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 		return i;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getMaxDepth(){
 		if(this.getLeftDepth() > this.getRightDepth())
 			return this.getLeftDepth();

@@ -6,7 +6,7 @@ import java.lang.ref.WeakReference;
  * Define a tree node which can not be instantiated.
  * Default method of a tree node.
  *
- * @author aguyon
+ * @author Alexandre Guyon
  *
  */
 public abstract class AbstractTreeNode <D,N extends TreeNode<D,N>> implements TreeNode<D, N>{
@@ -30,9 +30,10 @@ public abstract class AbstractTreeNode <D,N extends TreeNode<D,N>> implements Tr
 
 	@Override
 	public void setParentNode(N parent) {
-		this.parent = new WeakReference<N>(parent);
+		this.parent = new WeakReference<>(parent);
 	}
 	
+	@Override
 	public boolean hasParentNode(){
 		return (this.parent != null);
 	}

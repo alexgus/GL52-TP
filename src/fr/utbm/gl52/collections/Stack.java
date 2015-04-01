@@ -2,7 +2,7 @@ package fr.utbm.gl52.collections;
 
 /**
  * Generic method for accessing stack
- * @author aguyon
+ * @author Alexandre Guyon
  *
  * @param <E> The param E is used to specify the Type of data toi store in the stack
  */

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.utbm.gl52.tp1;
+package fr.utbm.gl52.launcher;
 
 import fr.utbm.gl52.collections.ArrayStack;
 import fr.utbm.gl52.tree.AVLTree;
@@ -9,7 +9,9 @@ import fr.utbm.gl52.tree.BinarySearchTree;
 import fr.utbm.gl52.tree.BinaryTreeNode;
 
 /**
- * @author aguyon
+ * This class allows to use an arraystack and AVL for doing heap sort
+ * 
+ * @author Alexandre Guyon
  *
  */
 public class TestAVLTree {
@@ -17,7 +19,7 @@ public class TestAVLTree {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ArrayStack<Integer> array = new ArrayStack<Integer>();
+		ArrayStack<Integer> array = new ArrayStack<>();
 		
 		System.out.println("Stack size : " + array.getSize());
 		
@@ -42,7 +44,7 @@ public class TestAVLTree {
 		
 		System.out.println("Stack size : " + array.getSize());
 		
-		BinarySearchTree<Integer> avl = new AVLTree<Integer>();
+		BinarySearchTree<Integer> avl = new AVLTree<>();
 		
 		while(!array.isEmpty())
 			avl.insert(array.pop());

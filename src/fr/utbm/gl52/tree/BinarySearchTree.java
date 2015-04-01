@@ -5,7 +5,10 @@ package fr.utbm.gl52.tree;
 
 
 /**
- * @author aguyon
+ * The binary search tree implements methods for handling research more efficiently.
+ * Data are organized by value.
+ * 
+ * @author Alexandre Guyon
  *
  */
 public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
@@ -28,7 +31,7 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 	 * @param d The node to insert
 	 */
 	public void insert(D d){
-		BinaryTreeNode<D> node = new BinaryTreeNode<D>();
+		BinaryTreeNode<D> node = new BinaryTreeNode<>();
 		node.setUserData(d);
 		this.insert(node);
 	}
