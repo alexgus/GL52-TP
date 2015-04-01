@@ -58,7 +58,7 @@ public class ArrayStack<E> implements Stack<E>{
 			this.data = Arrays.copyOf(this.data, this.currentSize + this.MIN_ALLOC_SIZE);
 			this.size = this.currentSize + this.MIN_ALLOC_SIZE;
 		}
-		this.data[this.currentSize] = (Object) el;
+		this.data[this.currentSize] = el;
 		this.currentSize++;
 	}
 
