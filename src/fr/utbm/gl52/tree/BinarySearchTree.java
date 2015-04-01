@@ -9,6 +9,7 @@ package fr.utbm.gl52.tree;
  * Data are organized by value.
  * 
  * @author Alexandre Guyon
+ * @param <D> 
  *
  */
 public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
@@ -114,6 +115,10 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param a
+	 */
 	public void rotateLeft(BinaryTreeNode<D> a){
 		if(a.hasRightChild()){ // if no left, can not rotate
 			

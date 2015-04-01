@@ -44,6 +44,7 @@ public class ArrayStack<E> implements Stack<E>{
 	
 	/**
 	 * Create and set the begin size of the stack. Avoid reallocation of memory if the stack is well dimensioned at the beginning. 
+	 * @param size 
 	 */
 	public ArrayStack(int size) {
 		this.data = new Object[size];
@@ -86,7 +87,7 @@ public class ArrayStack<E> implements Stack<E>{
 	 * @return Return the current size of the stack. Can be different from the beginning.
 	 */
 	public Integer getSize() {
-		return size;
+		return this.size;
 	}
 
 	/**
@@ -104,7 +105,7 @@ public class ArrayStack<E> implements Stack<E>{
 	 * @return Integer corresponding to the number of element in the stack.
 	 */
 	public Integer getCurrentSize() {
-		return currentSize;
+		return this.currentSize;
 	}
 	
 }

@@ -9,7 +9,7 @@ import java.util.List;
 import fr.utbm.gl52.collections.listsorter.HeapListSorter;
 
 /**
- * @author Alexandre
+ * @author Alexandre Guyon
  *
  */
 public class HeapSorter {

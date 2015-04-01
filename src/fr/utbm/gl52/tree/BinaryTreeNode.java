@@ -5,6 +5,7 @@ package fr.utbm.gl52.tree;
  * This one has two children (left, right) which are BinaryTreeNode too.
  *
  * @author Alexandre Guyon
+ * @param <D> 
  *
  */
 public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
@@ -41,18 +42,30 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 		return this.getRightDepth();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getLeftDepth(){
 		if(this.hasLeftChild())
 			return this.getLeft().getMaxDepth();
 		return this.getDepth();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getRightDepth(){
 		if(this.hasRightChild())
 			return this.getRight().getMaxDepth();
 		return this.getDepth();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getDepth(){
 		int depth = 1;
 		
@@ -68,13 +81,15 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 
 	/**
 	 * Set the left child of the current binary tree node
+	 * @return 
 	 */
 	public BinaryTreeNode<D> getLeft() {
-		return left;
+		return this.left;
 	}
 	
 	/**
 	 * Set the right child of the current binary tree node
+	 * @param left 
 	 */
 	public void setLeft(BinaryTreeNode<D> left) {
 		if(left != null)
@@ -84,13 +99,15 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 
 	/**
 	 * Get the left child of the current binary tree node
+	 * @return 
 	 */
 	public BinaryTreeNode<D> getRight() {
-		return right;
+		return this.right;
 	}
 
 	/**
 	 * Get the right child of the current binary tree node
+	 * @param right 
 	 */
 	public void setRight(BinaryTreeNode<D> right) {
 		if(right != null)
@@ -98,14 +115,23 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 		this.right = right;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean hasLeftChild(){
 		return (this.left != null);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean hasRightChild(){
 		return (this.right != null);
 	}
 	
+	@Override
 	public String toString(){
 		return "Data : " + this.getUserData() + " Depth : " + this.getDepth();
 	}

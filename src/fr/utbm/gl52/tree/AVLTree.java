@@ -8,6 +8,7 @@ package fr.utbm.gl52.tree;
  * It is search binary tree which automatically equilibrate itself
  * 
  * @author Alexandre Guyon
+ * @param <D> 
  *
  */
 public class AVLTree<D extends Comparable<D>> extends BinarySearchTree<D> {

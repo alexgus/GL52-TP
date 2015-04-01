@@ -10,6 +10,8 @@ import java.util.Iterator;
  * This one can have root node and defines some methods for manipulating the tree. 
  * 
  * @author Alexandre Guyon
+ * @param <D> 
+ * @param <N> 
  *
  */
 public abstract class AbstractTree<D,N extends AbstractTreeNode<D,N>> implements Tree<D,N> {

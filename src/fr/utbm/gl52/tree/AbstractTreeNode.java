@@ -7,6 +7,8 @@ import java.lang.ref.WeakReference;
  * Default method of a tree node.
  *
  * @author Alexandre Guyon
+ * @param <D> 
+ * @param <N> 
  *
  */
 public abstract class AbstractTreeNode <D,N extends TreeNode<D,N>> implements TreeNode<D, N>{
