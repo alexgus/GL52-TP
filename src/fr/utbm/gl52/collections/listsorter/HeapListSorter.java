@@ -7,6 +7,8 @@ import fr.utbm.gl52.tree.AVLTree;
 import fr.utbm.gl52.tree.BinaryTreeNode;
 
 /**
+ * Allow to sort a list (ascending or descending sort) in giving a list of comparable data.
+ * This implementation use BinarySearchTree for sorting.
  * 
  * @author Alexandre Guyon
  *
