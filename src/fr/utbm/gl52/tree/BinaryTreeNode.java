@@ -5,7 +5,7 @@ package fr.utbm.gl52.tree;
  * This one has two children (left, right) which are BinaryTreeNode too.
  *
  * @author Alexandre Guyon
- * @param <D> 
+ * @param <D> The type of data to store in the abstract tree
  *
  */
 public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
@@ -33,8 +33,8 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Get the maximum depth of his children
+	 * @return the maximum depth of his children
 	 */
 	public int getMaxDepth(){
 		if(this.getLeftDepth() > this.getRightDepth())
@@ -43,8 +43,8 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Get the maximum depth of his left child
+	 * @return the maximum depth of his left child
 	 */
 	public int getLeftDepth(){
 		if(this.hasLeftChild())
@@ -53,8 +53,8 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Get the maximum depth of his right child
+	 * @return the maximum depth of his right child
 	 */
 	public int getRightDepth(){
 		if(this.hasRightChild())
@@ -63,8 +63,8 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Get iteratively the depth of the current node 
+	 * @return The depth of the current node
 	 */
 	public int getDepth(){
 		int depth = 1;
@@ -81,7 +81,7 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 
 	/**
 	 * Set the left child of the current binary tree node
-	 * @return 
+	 * @return The left child of this node
 	 */
 	public BinaryTreeNode<D> getLeft() {
 		return this.left;
@@ -89,7 +89,7 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	
 	/**
 	 * Set the right child of the current binary tree node
-	 * @param left 
+	 * @param left Set the left child of this node
 	 */
 	public void setLeft(BinaryTreeNode<D> left) {
 		if(left != null)
@@ -98,8 +98,8 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 
 	/**
-	 * Get the left child of the current binary tree node
-	 * @return 
+	 * Get the right child of the current binary tree node
+	 * @return The right child of this node
 	 */
 	public BinaryTreeNode<D> getRight() {
 		return this.right;
@@ -107,7 +107,7 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 
 	/**
 	 * Get the right child of the current binary tree node
-	 * @param right 
+	 * @param right Set the right child of this node 
 	 */
 	public void setRight(BinaryTreeNode<D> right) {
 		if(right != null)
@@ -116,16 +116,16 @@ public class BinaryTreeNode<D> extends AbstractTreeNode<D, BinaryTreeNode<D>>{
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Check if this node has a left child
+	 * @return boolean; true if this node has a left child, false otherwise
 	 */
 	public boolean hasLeftChild(){
 		return (this.left != null);
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Check if this node has a right child
+	 * @return boolean; true if this node has right child, false otherwise
 	 */
 	public boolean hasRightChild(){
 		return (this.right != null);

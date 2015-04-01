@@ -9,7 +9,7 @@ package fr.utbm.gl52.tree;
  * Data are organized by value.
  * 
  * @author Alexandre Guyon
- * @param <D> 
+ * @param <D> The type of data to store in the abstract tree 
  *
  */
 public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
@@ -116,8 +116,8 @@ public class BinarySearchTree<D extends Comparable<D>> extends BinaryTree<D> {
 	}
 	
 	/**
-	 * 
-	 * @param a
+	 * Allow to rotate 3 contiguous values of binary node
+	 * @param a The node and its sons to rotate
 	 */
 	public void rotateLeft(BinaryTreeNode<D> a){
 		if(a.hasRightChild()){ // if no left, can not rotate

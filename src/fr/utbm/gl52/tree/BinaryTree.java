@@ -12,7 +12,7 @@ import fr.utbm.gl52.collections.ArrayStack;
  * This class implements a binary tree. It have BinaryTreeNode(s)
  *
  * @author Alexandre Guyon
- * @param <D> 
+ * @param <D> The type of data to store in the abstract tree
  *
  */
 public class BinaryTree<D> extends AbstractTree<D, BinaryTreeNode<D>> {
