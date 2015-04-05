@@ -35,9 +35,7 @@ public abstract class AbstractTree<D,N extends AbstractTreeNode<D,N>> implements
 
 	@Override
 	public boolean isEmpty() {
-		if(this.root != null)
-			return false;
-		return true;
+		return (this.root == null);
 	}
 
 	@Override
